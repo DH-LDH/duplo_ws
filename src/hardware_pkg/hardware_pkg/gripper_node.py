@@ -1,35 +1,3 @@
-# import rclpy
-# from rclpy.node import Node
-# from std_srvs.srv import SetBool
-# import serial
-# import time
-
-# class GripperNode(Node):
-#     def __init__(self):
-#         super().__init__('gripper_node')
-#         self.srv = self.create_service(SetBool, 'control_gripper', self.control_cb)
-#         try:
-#             self.ser = serial.Serial("/dev/ttyACM0", 115200, timeout=1)
-#             time.sleep(2.0)
-#             self.get_logger().info("✅ Gripper Serial Connected")
-#         except Exception as e:
-#             self.get_logger().error(f"❌ Serial Error: {e}")
-
-#     def control_cb(self, request, response):
-#         if request.data: # True -> Grip
-#             self.ser.write(b"grip\n")
-#             response.message = "Grip Success"
-#         else: # False -> Open
-#             self.ser.write(b"open\n")
-#             response.message = "Open Success"
-#         response.success = True
-#         return response
-
-# def main():
-#     rclpy.init()
-#     rclpy.spin(GripperNode())
-#     rclpy.shutdown()
-
 import rclpy
 from rclpy.node import Node
 from std_srvs.srv import SetBool

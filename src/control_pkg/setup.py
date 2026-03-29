@@ -26,6 +26,8 @@ setup(
         'console_scripts': [
             'robot_node = control_pkg.robot_node:main',
             'master_node = control_pkg.master_node:main',
+            'master_node2 = control_pkg.master_node2:main',
+            'master_node3 = control_pkg.master_node3:main',
         ],
     },
 )

@@ -41,6 +41,19 @@
 * **문제점:** 로봇 팔이 멈출 때 발생하는 미세한 잔진동으로 인해 인식된 좌표가 미세하게 흔들리는 현상이 있었습니다.
 * **해결책:** 마스터 노드에 조립 전 **1초의 잔진동 대기 시간(Settling Time)**을 추가하고, 비전 노드의 정밀 스캔 데이터 수집 시간을 **1.2초에서 2.0초로 증가**시켜 흔들림 없는 확실한 중간값(Median)을 추출해 꽂는 정확도를 극대화했습니다.
 
+## 🚀 Key Technical Challenges & Solutions
+
+### 1. Assembly Sequence Optimization : master_node4, 5
+- **Problem:** 간섭 발생 및 낮은 정밀도
+- **Solution:** 기존 `XY -> Yaw -> Z` 시퀀스를 `Yaw(허공) -> XY(정밀) -> Z`로 변경하여 주변 구조물과의 충돌 방지 및 삽입 정확도 향상.
+
+### 2. Overcoming Visual Occlusion (Memory-based Stacking)
+- **Problem:** 블록이 쌓이면서 하단 베이스가 가려지거나, 색상이 뭉쳐 보이는 현상.
+- **Solution:** 인식이 가장 명확한 시점의 좌표를 변수에 저장(`last_perfect_pose`)하고, 이후 시퀀스에서 해당 좌표를 불러와 오프셋을 계산하는 **Memory-based Blind Stacking** 기획.
+
+### 3. Gripper Collision Avoidance
+- **Problem:** 좁은 간격에 블록 삽입 시 그리퍼 두께로 인한 인접 블록과의 충돌.
+- **Solution:** 2x2 블록의 정사각형 대칭성을 이용, 90도 회전 오프셋을 적용하여 물리적 간섭 해결.
 ---
 
 ## 👨‍💻 Author

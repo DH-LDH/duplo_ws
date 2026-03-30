@@ -177,7 +177,6 @@ class MasterNode(Node):
         # ---------------------------------------------------------
         self.call(self.cli_h, Trigger.Request())
         self.get_logger().info("🎉 ALL SEQUENCE DONE")
-g
 def main():
     rclpy.init()
     node = MasterNode()

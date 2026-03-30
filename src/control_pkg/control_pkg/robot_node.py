@@ -16,7 +16,7 @@ class RobotNode(Node):
         self.srv_move = self.create_service(GetTargetPose, '/robot_move_step', self.move_step_cb)
         
         # 오프셋 및 속도 설정
-        self.CAM_X_OFF = -51.0
+        self.CAM_X_OFF = -53.0
         self.CAM_Y_OFF = 32.0
         self.L_VEL = 500
         self.L_ACC = 800
@@ -42,7 +42,7 @@ class RobotNode(Node):
     def move_step_cb(self, req, res):
         try:
             if req.target_size == "YAW":
-                # 💡 핵심: Yaw 값이 0에 가까우면 (예: 0.5도 미만) 이동 생략
+                # 💡 핵심: Yaw 값이 0에 가까우면 (예: 0.1도 미만) 이동 생략
                 if abs(req.yaw) < 0.1:
                     self.get_logger().info(f"⏭️ YAW 값이 0에 가까움({req.yaw:.2f}도). 정렬을 생략하고 진행합니다.")
                     res.success = True

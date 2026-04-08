@@ -58,5 +58,5 @@
 ---
 
 ## 👨‍💻 Author
-* **이다한 (Lee Dahan)**
+* **이다한 (Lee Dahan)**, **박정우 (Park jeongwoo)**
 * Incheon National University, Dept. of Electrical Engineering

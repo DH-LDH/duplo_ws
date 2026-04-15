@@ -42,7 +42,7 @@
 
 ### 1. Assembly Sequence Optimization : master_node4, 5
 - **Problem:** 간섭 발생 및 낮은 정밀도
-- **Solution:** 기존 `XY -> Yaw -> Z` 시퀀스를 `Yaw(허공) -> XY(정밀) -> Z`로 변경하여 주변 구조물과의 충돌 방지 및 삽입 정확도 향상.
+- **Solution:**  `Yaw(허공) -> XY(정밀) -> Z`로 변경하여 주변 구조물과의 충돌 방지 및 삽입 정확도 향상.
 
 ### 2. Overcoming Visual Occlusion (Memory-based Stacking)
 - **Problem:** 블록이 쌓이면서 하단 베이스가 가려지거나, 색상이 뭉쳐 보이는 현상.
